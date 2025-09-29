@@ -7,7 +7,8 @@ class matrice
 {
 public:
 	int n, m;// m/i nr linii, n/j nr coloane
-	float values[5][5] = { 0 };
+	double values[5][5] = { 0 };
+	
 	matrice(int linii = 3, int coloane = 3)
 	{
 		n = coloane;
@@ -95,7 +96,7 @@ public:
 		}
 	}
 
-	matrice operator*(const float& scalar)
+	matrice operator*(const double& scalar)
 	{
 		matrice prod(m, n);
 		for (int i = 0; i < m; i++)
