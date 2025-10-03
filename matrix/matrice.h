@@ -3,6 +3,15 @@
 
 using namespace std;
 
+#ifndef PI
+	#define PI 3.14159265358979323846f
+#endif
+#ifndef DEG2RAD
+	#define DEG2RAD (PI/180.0f)
+#endif
+#ifndef RAD2DEG
+	#define RAD2DEG (180.0f/PI)
+#endif
 enum error {
 	ADDITION_ERROR,
 	MULTIPLICATION_ERROR,
@@ -16,7 +25,7 @@ public:
 	int n, m;// m/i nr linii, n/j nr coloane
 	double values[3][3] = { 0 };
 	error operationError = NONE;
-	
+
 	matrice(int linii = 3, int coloane = 3)
 	{
 		n = coloane;
@@ -66,7 +75,7 @@ public:
 		{
 			return false;
 		}
-		for(int i = 0; i < m; i++) // linii
+		for (int i = 0; i < m; i++) // linii
 		{
 			for (int j = 0; j < n; j++) //coloane
 			{
@@ -152,7 +161,7 @@ public:
 		}
 		operationError = NONE;
 		matrice prod(m, other.n);
-		
+
 		for (int i = 0; i < m; i++)
 		{
 			for (int j = 0; j < other.n; j++)
@@ -165,7 +174,20 @@ public:
 				prod.values[i][j] = val;
 			}
 		}
-		
+
 		return prod;
+	}
+};
+
+class Vector3
+{
+public:
+	float x, y, z;
+
+	void operator=(const Vector3& other)
+	{
+		x = other.x;
+		y = other.y;
+		z = other.z;
 	}
 };
